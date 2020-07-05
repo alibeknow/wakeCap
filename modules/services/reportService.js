@@ -14,6 +14,7 @@ const Asset = require('../repository/assetRepository');
  */
 async function _getAllSites() {
   const UTCEquivalent = moment().format('LT');
+
   const conditions = {
     UTCEquivalent
   };
@@ -24,7 +25,7 @@ async function _getAllSites() {
     endingHour: 1,
     lateThresholdHour: 1
   };
-  return Site.find(conditions, fields);
+  return Site.findAll(conditions, fields);
 }
 
 /**
@@ -69,7 +70,7 @@ async function _getAbsentSiteWorkers(siteId) {
   const fields = {
     _id: 1
   };
-  return Worker.find(conditions, fields);
+  return Worker.findAll(conditions, fields);
 }
 
 /**
@@ -155,7 +156,6 @@ class ReportService {
    */
   static async generateReports() {
     const sites = await _getAllSites();
-    console.log(sites);
     for (const site of sites) {
       const { _id, startingHour, lateThresholdHour, clientId } = site;
       const [

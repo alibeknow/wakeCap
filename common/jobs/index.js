@@ -2,14 +2,14 @@ const { CronJob } = require('cron');
 
 const ReportService = require('../../modules/services/reportService');
 
-// Cron job everyday on 00:00 AM start report
-const reportJob = new CronJob('*/10 * * * * *', async () => {
+// Cron job start Every hour
+const reportJob = new CronJob('0 * * * *', async () => {
   try {
-    console.log('asd');
+    console.log('starting cron script');
     await ReportService.generateReports();
   } catch (err) {
     // will be handled
-    console.log(err);
+    console.log('we have problem in cron script', err);
   }
 });
 
