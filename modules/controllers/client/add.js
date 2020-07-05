@@ -8,8 +8,7 @@ const Client = require('../../repository/clientRepository');
 // @access    Public
 module.exports = asyncHandler(async (req, res) => {
   const { name, phoneNumber, email } = req.body;
-
-  await Client.create({
+  const data = await Client.create({
     name,
     phoneNumber,
     email
@@ -18,6 +17,6 @@ module.exports = asyncHandler(async (req, res) => {
   return res.status(CREATED).json({
     success: true,
     message: 'Client created successfully',
-    data: null
+    data
   });
 });

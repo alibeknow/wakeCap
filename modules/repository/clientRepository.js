@@ -15,4 +15,4 @@ class Client extends BaseRepository {
   }
 }
 
-module.exports = Client;
+module.exports = new Client();

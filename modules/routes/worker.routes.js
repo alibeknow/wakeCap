@@ -2,10 +2,10 @@ const express = require('express');
 
 const requestValidator = require('../../common/middleware/requestValidator');
 const { addController } = require('../controllers/worker');
-const { addSchema } = require('../schemas/workerSchema');
+const { workerValidator } = require('../validator');
 
 const router = express.Router();
 
-router.post('/', requestValidator(addSchema), addController);
+router.post('/', requestValidator(workerValidator), addController);
 
 module.exports = router;

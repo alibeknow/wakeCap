@@ -7,7 +7,7 @@ const AssetSchema = new Schema(
   {
     workerId: {
       type: Schema.ObjectId,
-      ref: 'worker',
+      ref: 'Worker',
       index: true
     },
     clientId: {

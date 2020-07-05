@@ -25,7 +25,6 @@ module.exports = asyncHandler(async (req, res, next) => {
   if (!worker) {
     return next(new ErrorResponse('Worker not found', BAD_REQUEST));
   }
-
   const { clientId, siteId } = worker;
 
   Asset.create({

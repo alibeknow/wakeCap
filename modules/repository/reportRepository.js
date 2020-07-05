@@ -15,4 +15,4 @@ class Report extends BaseRepository {
   }
 }
 
-module.exports = Report;
+module.exports = new Report();

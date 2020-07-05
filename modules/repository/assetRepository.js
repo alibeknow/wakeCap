@@ -15,4 +15,4 @@ class Asset extends BaseRepository {
   }
 }
 
-module.exports = Asset;
+module.exports = new Asset();

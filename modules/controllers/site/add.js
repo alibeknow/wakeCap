@@ -1,4 +1,4 @@
-const { CREATED, BAD_REQUEST } = require('http-status-codes');
+const { CREATED } = require('http-status-codes');
 const moment = require('moment-timezone');
 
 const asyncHandler = require('../../../common/middleware/async');

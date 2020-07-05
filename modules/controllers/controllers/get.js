@@ -1,7 +1,7 @@
 const { OK } = require('http-status-codes');
 
 const asyncHandler = require('../../../common/middleware/async');
-const Report = require('../../repository/reportRepository');
+const Report = require('../../schemas/reportSchema');
 
 // @desc      Get all reports
 // @route     POST /api/v0/users/reports
@@ -29,7 +29,7 @@ module.exports = asyncHandler(async (req, res) => {
       default:
     }
   });
-  console.log(conditions);
+
   const [list, count] = await Promise.all([
     Report.find(
       conditions,
@@ -41,14 +41,7 @@ module.exports = asyncHandler(async (req, res) => {
     ),
     Report.countDocuments(conditions)
   ]);
-  const reportResult = Report.find(
-    conditions,
-    {},
-    {
-      skip,
-      limit
-    }
-  );
+
   return res.status(OK).json({
     success: true,
     message: 'Done successfully',

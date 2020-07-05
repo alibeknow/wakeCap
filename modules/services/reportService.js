@@ -155,6 +155,7 @@ class ReportService {
    */
   static async generateReports() {
     const sites = await _getAllSites();
+    console.log(sites);
     for (const site of sites) {
       const { _id, startingHour, lateThresholdHour, clientId } = site;
       const [

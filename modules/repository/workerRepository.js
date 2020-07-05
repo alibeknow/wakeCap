@@ -14,4 +14,4 @@ class Worker extends BaseRepository {
   }
 }
 
-module.exports = Worker;
+module.exports = new Worker();

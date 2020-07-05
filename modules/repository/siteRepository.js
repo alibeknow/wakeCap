@@ -15,4 +15,4 @@ class Site extends BaseRepository {
   }
 }
 
-module.exports = Site;
+module.exports = new Site();

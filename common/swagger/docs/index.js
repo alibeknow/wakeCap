@@ -232,11 +232,27 @@ module.exports = {
     }
   },
   '/clients': {
-    get: {
+    post: {
       tags: ['Client'],
       summary: 'Add Client',
       operationId: 'AddClient',
       parameters: [],
+      requestBody: {
+        description: '',
+        content: {
+          'application/json': {
+            schema: {
+              $ref: '#/components/schemas/AddClientRequest'
+            },
+            example: {
+              name: 'Alibek Nauryzbayev',
+              phoneNumber: '+7777 0999431',
+              email: 'alibek.amazing@gmail.com'
+            }
+          }
+        },
+        required: true
+      },
       responses: {
         200: {
           description: 'Ok',
