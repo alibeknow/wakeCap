@@ -1,7 +1,7 @@
 module.exports = {
   openapi: '3.0.0',
   info: {
-    title: 'wakecap-api',
+    title: 'WakeCap task for backend',
     description: 'wakecap APIs documentation',
     termsOfService: 'http://wakecap.com/terms/',
     contact: {

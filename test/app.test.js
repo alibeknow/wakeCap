@@ -47,7 +47,7 @@ describe('Wakecap-api', () => {
    */
   describe('Adding new Site', () => {
     it('New site', (done) => {
-      Client.find().then((clients) => {
+      Client.findAll().then((clients) => {
         const newSite = {
           clientId: _.sample(clients)._id,
           name: faker.company.companyName(),
@@ -75,7 +75,7 @@ describe('Wakecap-api', () => {
    */
   describe('Adding new Worker', () => {
     it('New Worker', (done) => {
-      Site.find().then((sites) => {
+      Site.findAll().then((sites) => {
         const { _id: siteId, clientId } = _.sample(sites);
         const newWorker = {
           name: faker.name.firstName(),
@@ -99,7 +99,7 @@ describe('Wakecap-api', () => {
    */
   describe('Adding new asset log', () => {
     it('New Asset', (done) => {
-      Worker.find().then((workers) => {
+      Worker.findAll().then((workers) => {
         const { _id: worker_id } = _.sample(workers);
         const is_active = _.sample([true, false]);
         const newAsset = {

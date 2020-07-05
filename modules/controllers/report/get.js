@@ -31,7 +31,7 @@ module.exports = asyncHandler(async (req, res) => {
   });
   console.log(conditions);
   const [list, count] = await Promise.all([
-    Report.find(
+    Report.findAll(
       conditions,
       {},
       {
