@@ -4,9 +4,9 @@ const faker = require('faker');
 const _ = require('lodash');
 
 const app = require('../app');
-const Client = require('../modules/client/model');
-const Site = require('../modules/site/model');
-const Worker = require('../modules/worker/model');
+const Client = require('../modules/repository/clientRepository');
+const Site = require('../modules/repository/siteRepository');
+const Worker = require('../modules/repository/workerRepository');
 
 const should = chai.should();
 
@@ -20,7 +20,7 @@ const timeZones = [
 
 chai.use(chaiHttp);
 
-describe('Wakecap-api', () => {
+describe('api test wakeCap', () => {
   /*
    * Adding client
    */
@@ -76,11 +76,14 @@ describe('Wakecap-api', () => {
   describe('Adding new Worker', () => {
     it('New Worker', (done) => {
       Site.findAll().then((sites) => {
-        const { _id: siteId, clientId } = _.sample(sites);
+        let { _id, clientId } = _.sample(sites);
+        clientId = clientId._id;
+        console.log(_id, clientId);
+
         const newWorker = {
           name: faker.name.firstName(),
           clientId,
-          siteId
+          siteId: _id
         };
         chai
           .request(app)
